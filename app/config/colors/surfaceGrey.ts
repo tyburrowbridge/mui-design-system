@@ -7,9 +7,13 @@ export const surfaceGrey = {
   600: "#465967",
   900: "#1C262F",
   primary: {
+    light: "#9FAFBC",
     main: "#465967",
+    dark: "#1C262F",
   },
   secondary: {
-    main: "#465967",
+    light: "#DEE4E8",
+    main: "#9FAFBC",
+    dark: "#465967",
   },
 } as const
