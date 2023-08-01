@@ -1,57 +1,80 @@
-import theme from "../config/theme"
 import {
   AppBar,
-  Avatar,
   Box,
   Grid,
   IconButton,
+  Select,
   Stack,
+  Switch,
   Toolbar,
   Typography,
 } from "@mui/material"
-import { OfflineBoltRounded, PersonRounded } from "@mui/icons-material"
-
-const AppBarAppIcon = () => (
-  <Box display={"flex"} justifyContent={"center"}>
-    <IconButton size="large">
-      <OfflineBoltRounded />
-    </IconButton>
-  </Box>
-)
+import { MoreVertRounded, PersonRounded } from "@mui/icons-material"
+import { surfaceGrey } from "../config/colors"
 
 const AppBarTitle = () => (
   <Box display={"flex"}>
     <Stack direction={"row"} spacing={1} alignItems={"center"}>
       <Typography variant="h6">Tower</Typography>
-      <Typography variant="body1">Commercial Aviation</Typography>
+      <Typography variant="body1" width={180}>
+        Commercial Aviation
+      </Typography>
+    </Stack>
+  </Box>
+)
+
+const AppBarCustomerSelect = () => (
+  <Box width={180} display={"block"}>
+    <Select />
+  </Box>
+)
+
+const CustomerViewSwitch = () => (
+  <Box
+    width={138}
+    sx={{
+      display: { xs: "none", sm: "block" },
+    }}
+  >
+    <Stack direction={"row"} spacing={0.5}>
+      <Typography variant="body2" color={surfaceGrey.secondary.main}>
+        Customer View
+      </Typography>
+      <Switch />
     </Stack>
   </Box>
 )
 
 export const SurfaceAppBar = () => (
-  <AppBar
-    position="sticky"
-    sx={{
-      zIndex: theme.zIndex.drawer + 1,
-      paddingLeft: 0,
-      paddingRight: 2,
-    }}
-  >
-    <Toolbar disableGutters sx={{}}>
+  <AppBar position="fixed">
+    <Toolbar>
       <Grid container justifyContent={"space-between"} alignItems={"center"}>
-        <Grid item justifyItems={"center"} sm={1}>
-          <AppBarAppIcon />
-        </Grid>
-        <Grid item sm={10} sx={{}}>
-          <AppBarTitle />
+        <Grid item pl={{ xs: 6, sm: 6, md: 7 }} xs={5}>
+          <Stack direction={"row"} spacing={0}>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              <AppBarTitle />
+            </Box>
+            <AppBarCustomerSelect />
+          </Stack>
         </Grid>
 
-        <Grid item sm={1} alignItems={"center"}>
-          <Box display={"flex"} justifyContent={"end"}>
-            <Avatar sizes="small" variant="circular">
-              <PersonRounded />
-            </Avatar>
-          </Box>
+        <Grid item xs={6} alignItems={"center"}>
+          <Stack
+            direction={"row"}
+            spacing={4}
+            justifyContent={"end"}
+            alignItems={"center"}
+          >
+            <CustomerViewSwitch />
+            <Stack direction={"row"} spacing={0}>
+              <IconButton>
+                <PersonRounded />
+              </IconButton>
+              <IconButton>
+                <MoreVertRounded />
+              </IconButton>
+            </Stack>
+          </Stack>
         </Grid>
       </Grid>
     </Toolbar>

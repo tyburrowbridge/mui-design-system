@@ -1,78 +1,100 @@
 import { SideBar } from "../components/"
-import { Box, Grid, Paper, Stack, Typography, Button } from "@mui/material"
+import {
+  Box,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+  Button,
+  Container,
+  Tab,
+} from "@mui/material"
 import { SurfaceAppBar } from "../components/SurfaceAppBar"
 import { SummaryCard } from "../components/SummaryCard"
 import { SurfaceDataGrid } from "../components/SurfaceDataGrid"
-import styled from "@emotion/styled"
 import { SurfaceDataGridToolbar } from "../components/SurfaceDataGridToolBar"
+import { surfaceGrey } from "../config/colors"
+import { InfoCard } from "../components/InfoCard"
 
 export const MockPage: React.FC = () => {
   return (
     <Box
       sx={{
-        width: "100vw",
-        height: "100vh",
+        width: 1,
+        height: 1,
       }}
     >
       {/* APPBAR */}
       <SurfaceAppBar />
 
-      <Grid container>
-        {/* SIDEBAR */}
-        <Grid item sm={1}>
-          <SideBar />
-        </Grid>
+      {/* SIDEBAR */}
+      <SideBar />
 
-        {/* BODY */}
-        <Grid item sm={11}>
-          <Grid container spacing={1} p={2}>
-            {/* H1 Title */}
-            <Grid item sm={12}>
-              <Typography variant="h1">Hello World</Typography>
-            </Grid>
+      <Box
+        sx={{
+          pl: { xs: 4, sm: 8, md: 10 },
+          pt: 8,
+        }}
+      >
+        <Grid container>
+          {/* BODY */}
+          <Grid item xs={12}>
+            <Grid container spacing={1} p={2}>
+              <Tab
+                label="Status"
+                sx={{ color: surfaceGrey.primary.dark, opacity: 1 }}
+              />
+              <Tab label="Flights" />
+              <Tab label="Aircraft" />
 
-            {/* Summary Cards */}
-            <Grid item sm={12}>
-              <Stack direction={"row"} spacing={1}>
-                <SummaryCard />
-                <SummaryCard />
-                <SummaryCard />
-              </Stack>
-            </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h1">Hello World</Typography>
+              </Grid>
 
-            {/* Data Grid */}
-            <Grid item sm={12}>
-              <SurfaceDataGridToolbar />
-              <SurfaceDataGrid />
-            </Grid>
-            {/* Buttons */}
-            <Grid item sm={12}>
-              <Paper>
+              {/* Summary Cards */}
+              <Grid item xs={12}>
                 <Stack direction={"row"} spacing={1}>
-                  <Button variant="contained" size="large">
-                    Large
-                  </Button>
-                  <Button variant="contained" size="medium">
-                    Medium
-                  </Button>
-                  <Button variant="contained" size="small">
-                    Small
-                  </Button>
-                  <Button variant="outlined" size="large">
-                    Large
-                  </Button>
-                  <Button variant="outlined" size="medium">
-                    Medium
-                  </Button>
-                  <Button variant="outlined" size="small">
-                    Small
-                  </Button>
+                  <InfoCard />
+                  <SummaryCard />
+                  <SummaryCard />
                 </Stack>
-              </Paper>
+              </Grid>
+
+              {/* Data Grid */}
+              <Grid item xs={12}>
+                <SurfaceDataGridToolbar />
+                <SurfaceDataGrid />
+              </Grid>
+
+              {/* Buttons */}
+              <Grid item xs={12}>
+                <Paper>
+                  <Stack direction={"row"} spacing={1}>
+                    <Button variant="contained" size="large">
+                      Large
+                    </Button>
+                    <Button variant="contained" size="medium">
+                      Medium
+                    </Button>
+                    <Button variant="contained" size="small">
+                      Small
+                    </Button>
+                    <Button variant="outlined" size="large">
+                      Large
+                    </Button>
+                    <Button variant="outlined" size="medium">
+                      Medium
+                    </Button>
+                    <Button variant="outlined" size="small">
+                      Small
+                    </Button>
+                  </Stack>
+                </Paper>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </Box>
   )
 }

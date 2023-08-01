@@ -42,11 +42,11 @@ const theme = createTheme({
     },
     h3: {
       fontFamily: Uni.style.fontFamily,
-      fontWeight: "100",
+      fontWeight: "bold",
     },
     h4: {
       fontFamily: Uni.style.fontFamily,
-      fontWeight: "100",
+      fontWeight: "bold",
     },
     h5: {
       fontFamily: Uni.style.fontFamily,
@@ -76,6 +76,25 @@ const theme = createTheme({
 
   // COMPONENTS
   components: {
+    // MUI Linear Progress Bar
+    MuiLinearProgress: {
+      styleOverrides: {
+        root: {
+          backgroundColor: surfaceGrey[100],
+          color: surfaceGrey[900],
+          height: 6,
+          borderRadius: 3000,
+          width: "100%",
+        },
+        bar: {
+          backgroundColor: surfaceGrey.primary.main,
+        },
+      },
+      defaultProps: {
+        color: "primary",
+      },
+    },
+
     // MUI AppBar
     MuiAppBar: {
       styleOverrides: {
@@ -89,19 +108,27 @@ const theme = createTheme({
       },
     },
 
+    // MUI Avatar
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: surfaceGrey[200],
+          color: surfaceGrey[900],
+        },
+      },
+    },
+
     // MUI Button Base
     MuiButtonBase: {
       styleOverrides: {
         root: {
           textTransform: "none",
+          justifyItems: "left",
+          justifyContent: "left",
         },
       },
-    },
-
-    // MUI Icon
-    MuiSvgIcon: {
-      styleOverrides: {
-        root: {},
+      defaultProps: {
+        disableRipple: true,
       },
     },
 
@@ -134,7 +161,6 @@ const theme = createTheme({
 
       defaultProps: {
         disableElevation: true,
-        disableRipple: true,
         size: "medium",
         color: "primary",
       },
@@ -149,78 +175,46 @@ const theme = createTheme({
           paddingBottom: 10,
           paddingLeft: 8,
           paddingRight: 8,
+          height: "100%",
+          width: "100%",
         },
       },
     },
 
-    // MUI Avatar
-    MuiAvatar: {
+    // MUI Card Header
+    MuiCardHeader: {
       styleOverrides: {
         root: {
-          backgroundColor: surfaceGrey[200],
-          color: surfaceGrey[900],
+          paddingBottom: 4,
+        },
+        title: {
+          fontSize: 22,
+          fontWeight: 700,
+          fontFamily: Uni.style.fontFamily,
+        },
+        subheader: {
+          fontSize: 16,
         },
       },
-    },
 
-    // MUI Stack
-    MuiStack: {
       defaultProps: {
-        spacing: 2,
+        title: "Card Title",
       },
     },
 
-    // MUI Paper
-    MuiPaper: {
+    // MUI Card Content
+    MuiCardContent: {
       styleOverrides: {
         root: {
-          borderRadius: 8,
-          padding: 8,
-        },
-      },
-      defaultProps: {
-        elevation: 0,
-      },
-    },
-
-    // Mui Drawer
-    MuiDrawer: {
-      defaultProps: {
-        elevation: 0,
-      },
-      styleOverrides: {
-        paper: {
-          border: 0,
+          paddingTop: 4,
         },
       },
     },
 
-    // MUI Tooltip
-    MuiTooltip: {
+    // MUI Card Actions
+    MuiCardActions: {
       styleOverrides: {
-        tooltip: {
-          backgroundColor: surfaceGrey[600],
-          fontFamily: SourceSans.style.fontFamily,
-          fontWeight: 400,
-          fontSize: 14,
-        },
-      },
-    },
-
-    // MUI Icon Button
-    MuiIconButton: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "transparent",
-          color: surfaceGrey[400],
-          ":hover": {
-            backgroundColor: "transparent",
-            color: surfaceGrey[600],
-          },
-          ":active": {
-            color: surfaceGrey[600],
-          },
-        },
+        root: {},
       },
     },
 
@@ -305,6 +299,35 @@ const theme = createTheme({
       },
     },
 
+    // Mui Drawer
+    MuiDrawer: {
+      defaultProps: {
+        elevation: 0,
+      },
+      styleOverrides: {
+        paper: {
+          border: 0,
+        },
+      },
+    },
+
+    // MUI Icon Button
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "transparent",
+          color: surfaceGrey[400],
+          ":hover": {
+            backgroundColor: "transparent",
+            color: surfaceGrey.primary.main,
+          },
+          ":active": {
+            color: surfaceGrey.primary.main,
+          },
+        },
+      },
+    },
+
     // MUI Input
     MuiInput: {
       styleOverrides: {
@@ -327,12 +350,25 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: 14,
-          color: surfaceGrey[600],
+          color: surfaceGrey.primary.main,
           paddingLeft: 8,
           paddingBottom: 2,
         },
       },
       defaultProps: {},
+    },
+
+    // MUI Paper
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          padding: 8,
+        },
+      },
+      defaultProps: {
+        elevation: 0,
+      },
     },
 
     // MUI Select
@@ -350,6 +386,63 @@ const theme = createTheme({
         color: "primary",
         placeholder: "Select",
         label: "Label",
+      },
+    },
+
+    // MUI Stack
+    MuiStack: {
+      defaultProps: {
+        spacing: 2,
+      },
+    },
+
+    // MUI Switch
+    MuiSwitch: {
+      styleOverrides: {
+        track: {
+          backgroundColor: surfaceGrey.primary.light,
+        },
+      },
+      defaultProps: {
+        size: "small",
+      },
+    },
+
+    // MUI Icon
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {},
+      },
+    },
+
+    // MUI Tab
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontSize: 18,
+          textTransform: "none",
+          minWidth: 40,
+          fontWeight: 500,
+        },
+      },
+      defaultProps: {},
+    },
+
+    // MUI Tooltip
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: surfaceGrey.primary.main,
+          fontFamily: SourceSans.style.fontFamily,
+          fontWeight: 400,
+          fontSize: 12,
+        },
+        arrow: {
+          color: surfaceGrey.primary.main,
+        },
+      },
+      defaultProps: {
+        followCursor: true,
       },
     },
   },
