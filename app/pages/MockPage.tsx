@@ -57,15 +57,15 @@ export const MockPage: React.FC = () => {
 
               {/* Summary Cards */}
               <Grid item xs={12}>
-                <Grid container spacing={1}>
-                  <Grid item xs={12} sm={4}>
+                <Grid container spacing={1} wrap="wrap">
+                  <Grid item xs={12} sm={12} md={4}>
                     <InfoCard />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={6} md={4}>
                     {" "}
                     <SummaryCard />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={6} md={4}>
                     <SummaryCard />
                   </Grid>
                 </Grid>
