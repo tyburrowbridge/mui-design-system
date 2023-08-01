@@ -442,10 +442,11 @@ const theme = createTheme({
     MuiTab: {
       styleOverrides: {
         root: {
-          fontSize: 18,
+          fontSize: "1.1rem",
+          fontFamily: Uni.style.fontFamily,
           textTransform: "none",
           minWidth: 40,
-          fontWeight: 500,
+          fontWeight: 600,
         },
       },
       defaultProps: {},
