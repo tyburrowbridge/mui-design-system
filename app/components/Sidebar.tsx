@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Box, Drawer, IconButton, Paper, Stack } from "@mui/material"
+import { Stack, Box } from "@mui/material"
 import { SideBarIconButton } from "./SidebarIconButton"
 import {
   DashboardRounded,
@@ -11,25 +11,15 @@ import {
 } from "@mui/icons-material"
 import { SIDEBAR_MAX_WIDTH } from "../config/consts"
 
-const AppBarAppIcon = () => (
-  <Box display={"flex"} justifyContent={"center"}>
-    <IconButton size="large"></IconButton>
-  </Box>
-)
-
 export const SideBar = () => (
-  <Drawer
-    open
-    variant="persistent"
-    PaperProps={{
-      sx: {
-        backgroundColor: (theme) => theme.palette.background.default,
-      },
-    }}
+  <Box
+    zIndex={(theme) => theme.zIndex.appBar + 1}
+    display={{ xs: "none", sm: "block" }}
+    position={"fixed"}
   >
     <Stack
-      spacing={4}
-      pt={1}
+      spacing={2}
+      pt={2.75}
       pb={1}
       pl={{ xs: 0, sm: 2 }}
       pr={{ xs: 0, sm: 2 }}
@@ -46,5 +36,5 @@ export const SideBar = () => (
         <SideBarIconButton icon={<ConfirmationNumberRounded />} />
       </Stack>
     </Stack>
-  </Drawer>
+  </Box>
 )

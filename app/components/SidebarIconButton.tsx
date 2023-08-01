@@ -1,12 +1,11 @@
 import { IconButton } from "@mui/material"
-import theme from "../config/theme"
 
-type SideBarIconButtonProps = {
+interface SideBarIconButtonProps {
   icon: React.ReactElement
 }
 
-export const SideBarIconButton = (props: SideBarIconButtonProps) => (
+export const SideBarIconButton = ({ icon }: SideBarIconButtonProps) => (
   <IconButton size="medium" color="secondary">
-    {props.icon}
+    {icon}
   </IconButton>
 )

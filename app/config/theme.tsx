@@ -10,6 +10,23 @@ declare module "@mui/material/Button" {
   }
 }
 
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    label: React.CSSProperties
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    label?: React.CSSProperties
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    label: true
+  }
+}
+
 const theme = createTheme({
   // PALETTE
   palette: {
@@ -67,10 +84,17 @@ const theme = createTheme({
     overline: {
       fontFamily: SourceSans.style.fontFamily,
       fontWeight: "bold",
+      letterSpacing: 0.2,
     },
     caption: {
       fontFamily: SourceSans.style.fontFamily,
       fontWeight: "normal",
+    },
+    label: {
+      fontFamily: SourceSans.style.fontFamily,
+      fontWeight: 600,
+      fontSize: "1.0rem",
+      letterSpacing: -0.1,
     },
   },
 
@@ -82,7 +106,7 @@ const theme = createTheme({
         root: {
           backgroundColor: surfaceGrey[100],
           color: surfaceGrey[900],
-          height: 6,
+          height: 8,
           borderRadius: 3000,
           width: "100%",
         },
@@ -105,6 +129,7 @@ const theme = createTheme({
       },
       defaultProps: {
         elevation: 0,
+        square: true,
       },
     },
 
@@ -123,8 +148,6 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
-          justifyItems: "left",
-          justifyContent: "left",
         },
       },
       defaultProps: {
@@ -136,9 +159,9 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          fontFamily: SourceSans.style.fontFamily,
           borderRadius: 3000,
           textTransform: "none",
-          fontFamily: SourceSans.style.fontFamily,
         },
         // Button: Large
         sizeLarge: {

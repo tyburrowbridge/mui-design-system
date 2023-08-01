@@ -5,49 +5,52 @@ import {
   CardHeader,
   Typography,
   Stack,
-  Divider,
+  Grid,
 } from "@mui/material"
 import { ProgressBar } from "./ProgressBar"
 import { surfaceGrey } from "../config/colors"
 
-const CardDetailRow = () => (
+interface CardDetailRowProps {
+  label: string
+  value: string
+}
+
+const CardDetailRow = ({ label, value }: CardDetailRowProps) => (
   <Box width={1} p={0.25}>
     <Stack direction={"row"} justifyContent={"space-between"} width={1}>
-      <Typography variant="body1" color={surfaceGrey.secondary.main}>
-        Model
+      <Typography variant="label" color={surfaceGrey.secondary.main}>
+        {label}
       </Typography>
-      <Typography variant="body1">2983838376F</Typography>
+      <Typography variant="body1">{value}</Typography>
     </Stack>
   </Box>
 )
-
 const InfoCardTitle = () => (
-  <Box width={1}>
-    <Stack
-      direction={"row"}
-      justifyContent={"space-between"}
-      alignItems={"center"}
-    >
+  <Grid container alignItems={"center"}>
+    <Grid item xs={12} sm={9}>
       <Typography variant="h5" width={1}>
         N2983F
       </Typography>
+    </Grid>
+    <Grid item xs={12} sm={3}>
       <ProgressBar />
-    </Stack>
-  </Box>
+    </Grid>
+  </Grid>
 )
 
 export const InfoCard = () => (
   <Box width={1}>
-    <Card sx={{ borderTop: 8, borderColor: surfaceGrey.primary.main }}>
+    <Card sx={{ borderTop: 8, borderColor: surfaceGrey.secondary.main }}>
       <CardHeader title={<InfoCardTitle />} />
-      <Box p={2}>
-        <Divider />
-      </Box>
+
       <CardContent>
-        <CardDetailRow />
-        <CardDetailRow />
-        <CardDetailRow />
-        <CardDetailRow />
+        <Typography variant="overline">Vehicle Info</Typography>
+        <Stack spacing={1 / 2}>
+          <CardDetailRow label="Make" value="Boeing" />
+          <CardDetailRow label="Model" value="747-MAX" />
+          <CardDetailRow label="Fleet" value="MAX Aircrafts" />
+          <CardDetailRow label="Antenna" value="Ka" />
+        </Stack>
       </CardContent>
     </Card>
   </Box>

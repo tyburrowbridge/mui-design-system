@@ -46,10 +46,10 @@ const CustomerViewSwitch = () => (
 )
 
 export const SurfaceAppBar = () => (
-  <AppBar position="fixed">
+  <AppBar position="fixed" square>
     <Toolbar>
       <Grid container justifyContent={"space-between"} alignItems={"center"}>
-        <Grid item pl={{ xs: 6, sm: 6, md: 7 }} xs={5}>
+        <Grid item pl={{ xs: 0, sm: 6 }} xs={5}>
           <Stack direction={"row"} spacing={0}>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               <AppBarTitle />

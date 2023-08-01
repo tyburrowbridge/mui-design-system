@@ -15,6 +15,8 @@ import { SurfaceDataGrid } from "../components/SurfaceDataGrid"
 import { SurfaceDataGridToolbar } from "../components/SurfaceDataGridToolBar"
 import { surfaceGrey } from "../config/colors"
 import { InfoCard } from "../components/InfoCard"
+import { SIDEBAR_MAX_WIDTH } from "../config/consts"
+import theme from "../config/theme"
 
 export const MockPage: React.FC = () => {
   return (
@@ -23,6 +25,7 @@ export const MockPage: React.FC = () => {
         width: 1,
         height: 1,
       }}
+      display={"flex"}
     >
       {/* APPBAR */}
       <SurfaceAppBar />
@@ -32,32 +35,40 @@ export const MockPage: React.FC = () => {
 
       <Box
         sx={{
-          pl: { xs: 4, sm: 8, md: 10 },
           pt: 8,
+          pb: 8,
+          width: 1,
         }}
       >
-        <Grid container>
+        <Grid container pl={{ xs: 0, sm: 8 }}>
           {/* BODY */}
           <Grid item xs={12}>
             <Grid container spacing={1} p={2}>
               <Tab
                 label="Status"
-                sx={{ color: surfaceGrey.primary.dark, opacity: 1 }}
+                sx={{ color: surfaceGrey.primary.dark, opacity: 1, pl: 1 }}
               />
               <Tab label="Flights" />
               <Tab label="Aircraft" />
 
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <Typography variant="h1">Hello World</Typography>
-              </Grid>
+              </Grid> */}
 
               {/* Summary Cards */}
               <Grid item xs={12}>
-                <Stack direction={"row"} spacing={1}>
-                  <InfoCard />
-                  <SummaryCard />
-                  <SummaryCard />
-                </Stack>
+                <Grid container spacing={1}>
+                  <Grid item xs={12} sm={4}>
+                    <InfoCard />
+                  </Grid>
+                  <Grid item xs={12} sm={4}>
+                    {" "}
+                    <SummaryCard />
+                  </Grid>
+                  <Grid item xs={12} sm={4}>
+                    <SummaryCard />
+                  </Grid>
+                </Grid>
               </Grid>
 
               {/* Data Grid */}

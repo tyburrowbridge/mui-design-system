@@ -36,7 +36,7 @@ const CardTooltip = () => (
 )
 
 export const SummaryCard = () => (
-  <Box width={1}>
+  <Box width={1} height={1}>
     <Card>
       <CardHeader
         title="IFC Availability"

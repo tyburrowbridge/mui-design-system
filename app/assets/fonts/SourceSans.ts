@@ -17,5 +17,10 @@ export const SourceSans = localFont({
       weight: "400",
       style: "normal",
     },
+    {
+      path: "./SourceSansProSemiBold.woff",
+      weight: "600",
+      style: "semibold",
+    },
   ],
 })
