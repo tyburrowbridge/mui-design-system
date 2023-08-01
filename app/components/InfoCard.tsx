@@ -25,6 +25,7 @@ const CardDetailRow = ({ label, value }: CardDetailRowProps) => (
     </Stack>
   </Box>
 )
+
 const InfoCardTitle = () => (
   <Grid container alignItems={"center"}>
     <Grid item xs={12} sm={9}>
@@ -39,7 +40,7 @@ const InfoCardTitle = () => (
 )
 
 export const InfoCard = () => (
-  <Box width={1}>
+  <Box width={1} height={1}>
     <Card sx={{ borderTop: 8, borderColor: surfaceGrey.secondary.main }}>
       <CardHeader title={<InfoCardTitle />} />
 
